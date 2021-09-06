@@ -1,0 +1,21 @@
+version: "3"
+services:
+  home-assistant:
+    image: hl-home-assistant:2021.9.1
+    container_name: home-assistant
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - homeassistant_config:/config
+      - /run/dbus:/run/dbus
+      - /sys/class/bluetooth:/sys/class/bluetooth
+    environment:
+      - TZ=Europe/Stockholm
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+volumes:
+ homeassistant_config:
+   external: true
+
