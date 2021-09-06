@@ -1,7 +1,7 @@
 FROM homeassistant/home-assistant:2021.9
 
 RUN apk add dbus  ; \
-    mkdir -p /var/run/dbus
+    mkdir /run/dbus
 
 # Add services
 COPY s6-services/  /etc/services.d/
