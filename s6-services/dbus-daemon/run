@@ -3,4 +3,4 @@ if [  ! -f /run/dbus/system_bus_socket ]; then
   echo "dbus-daemon error. Ensure dbus-daemon is running in the host system and that /run/dbus is mounted. Exiting"
   exit 1
 fi
-dbus-daemon --system --print-address --nofork
+dbus-daemon --system --print-address --nofork --nopidfile
